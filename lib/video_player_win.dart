@@ -130,10 +130,10 @@ class WinVideoPlayerController extends ValueNotifier<WinVideoPlayerValue> {
       {bool isBridgeMode = false, Map<String, String> httpHeaders = const {}})
       : this._(url.toString(), WinDataSourceType.network,
             isBridgeMode: isBridgeMode, httpHeaders: httpHeaders);
-  WinVideoPlayerController.asset(String dataSource, {String? package})
-      : this._(dataSource, WinDataSourceType.asset);
-  WinVideoPlayerController.contentUri(Uri contentUri)
-      : this._("", WinDataSourceType.contentUri);
+  WinVideoPlayerController.asset(String dataSource, {String? package, Map<String, String> httpHeaders = const {}})
+      : this._(dataSource, WinDataSourceType.asset, httpHeaders: httpHeaders);
+  WinVideoPlayerController.contentUri(Uri contentUri, {Map<String, String> httpHeaders = const {}})
+      : this._("", WinDataSourceType.contentUri, httpHeaders: httpHeaders);
 
   Timer? _positionTimer;
   void _cancelTrackingPosition() => _positionTimer?.cancel();
